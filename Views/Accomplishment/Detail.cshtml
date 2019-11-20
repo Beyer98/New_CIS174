@@ -1,0 +1,46 @@
+﻿@model PersonDetailAccomplishmentViewModel
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-4">
+       
+    </div>
+    <div class ="row">
+    <div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="col-md- 4-md-offset-8">
+        <h2>@Model.LastName  -   @Model.FirstName</h2>
+        <div>
+            <a class="btn btn-sm btn-primary" asp-area="" asp-action="Edit" asp-controller="Accomplishment" asp-route-id="@Model.PersonId">Edit</a>
+            <a class="btn btn-sm btn-danger" asp-area="" asp-action="Delete" asp-controller="Accomplishment" asp-route-id="@Model.PersonId">Delete</a>
+            <a class="btn btn-sm btn-success" asp-area="" asp-action="CreateAccomplishment" asp-controller="Accomplishment" asp-route-Id="@Model.PersonId">Add Accomplishment</a>
+        </div>
+        <div class="col-md-4">
+            <h3>City : @Model.City</h3>
+            <h3>State: @Model.State</h3>
+            <a class="btn btn-default"  asp-area="" asp-controller="Accomplishment" asp-action="List">Back</a>
+        </div>
+    </div>
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date Accomplishe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var accomplishment in Model.Accomplishments)
+                    {
+                        <tr>
+                            <th>@accomplishment.Name</th>
+                            <td>@accomplishment.DateOfAccomplishment</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
